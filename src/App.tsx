@@ -22,7 +22,7 @@ function App() {
       </div>
       <div>
         <div className='Card'>
-          <b>Our contract Address: </b>
+          <b>Our contract Address: </b><br />
           <span className='Hint'>{contract_address?.slice(0, 30) + "..."}</span>
         </div>
         <div className='Hint'>
