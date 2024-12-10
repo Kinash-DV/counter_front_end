@@ -90,7 +90,7 @@ function App() {
               cursor: 'pointer',
             }}
           >
-            Increment
+            Add 7 to Counter
           </button>
         </div>        
         
