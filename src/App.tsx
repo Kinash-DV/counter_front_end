@@ -3,6 +3,7 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { useMainContract } from "./hooks/useMainContract";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { useState } from "react";
+import WebApp from "@twa-dev/sdk";
 
 function App() {
   const {
@@ -19,6 +20,7 @@ function App() {
   const { connected } = useTonConnect();
 
   const data = [
+    { name: 'Platform', value: WebApp.platform },
     { name: 'Our Address', value: contract_address?.slice(0, 30) + "..." },
     { name: 'Our Balance', value: contract_balance ?? "Loading..." },
     { name: 'Counter Value', value: counter_value ?? "Loading..." },
@@ -26,6 +28,10 @@ function App() {
 
   const [depositAmount, setDepositAmount] = useState(1);
   const [withdrawAmount, setWithdrawAmount] = useState(1);
+
+  const showAlert = () => {
+    WebApp.showAlert("Hello, buddy!");
+  }
 
 /*  const handleDepositClick = () => {
     alert(`Request deposit ${depositAmount} USD`);
@@ -73,6 +79,26 @@ function App() {
           margin: '0 auto',
         }}
       >
+        
+        <div style={{ textAlign: 'center' }}>
+          <button
+            onClick={() => {
+              showAlert();
+            }}
+            style={{
+              flex: 1,
+              width: '100%',
+              padding: '10px',
+              backgroundColor: '#000000',
+              color: 'white',
+              border: 'none',
+              borderRadius: '100vh',
+              cursor: 'pointer',
+            }}
+          >
+            Show Alert!
+          </button>
+        </div>        
         
         <div style={{ textAlign: 'center' }}>
           <button
